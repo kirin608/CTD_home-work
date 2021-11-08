@@ -1,36 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
 
-const todoList = [
-  {
-  id: '1',
-  title: 'Open the file',
-  },
-  {
-    id: '2',
-  title: 'Remove existing JSX',
-  },
-  {
-    id: '3',
-  title: 'Create level one heading',
-  },
-];
+import React, { useState } from 'react';
 
+import TodoList from './TodoList';
+import AddTodoForm from './AddTodoForm';
 function App() {
+const [newTodo, setNewTodo] = useState('');
+
   return(
   <div>
     <h1>To do list</h1>
-    <ul>
-      {todoList.map(function(item) {
-      return <li key={item.id}>
-        {/*<spam>{item.id}</spam> */}
-        <spam>{item.title}</spam>
-        </li>;
-     
-      })}
-      </ul>
-
-
+    <AddTodoForm  onAddTodo={setNewTodo} />
+    <ul>{newTodo} </ul>
+    <TodoList />
+    
     </div>
   );
 }
